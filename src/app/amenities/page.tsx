@@ -30,7 +30,7 @@ export default function AmenitiesPage() {
                 {cat.items.map((item) => (
                   <li key={item.name}>
                     <span className="font-semibold text-ink">{item.name}</span>
-                    {item.detail && <span className="text-ink/60"> — {item.detail}</span>}
+                    {item.detail && <span className="text-ink/70"> — {item.detail}</span>}
                   </li>
                 ))}
               </ul>

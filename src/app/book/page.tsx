@@ -21,7 +21,7 @@ export default function BookPage() {
         <div className="mt-10">
           <BookingWidget />
         </div>
-        <p className="mt-6 text-sm text-ink/60">
+        <p className="mt-6 text-sm text-ink/70">
           Prefer to talk to someone? Call {property.manager} at{" "}
           <a href={`tel:${property.managerPhone.replace(/[^\d+]/g, "")}`} className="font-semibold text-ocean-800">
             {property.managerPhone}

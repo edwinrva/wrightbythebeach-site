@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Section } from "@/components/Section";
 import { CtaButton } from "@/components/CtaButton";
-import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
+import { GalleryGrid } from "@/components/GalleryGrid";
 
 export const metadata: Metadata = {
   title: "Photo Gallery",
@@ -40,22 +40,7 @@ export default function GalleryPage() {
       </Section>
 
       <Section tone="light">
-        <div className="space-y-14">
-          {galleryGroups.map((group) => (
-            <div key={group.title}>
-              <h2 className="font-display text-2xl text-ocean-900">{group.title}</h2>
-              <div className="mt-5 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-                {group.photos.map((photo) => (
-                  <PhotoPlaceholder
-                    key={photo}
-                    label={photo}
-                    className="aspect-[4/3] rounded-xl"
-                  />
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
+        <GalleryGrid groups={galleryGroups} />
         <div className="mt-14 text-center">
           <CtaButton href="/book">Check availability</CtaButton>
         </div>

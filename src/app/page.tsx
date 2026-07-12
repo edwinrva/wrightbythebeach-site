@@ -3,6 +3,8 @@ import { Section } from "@/components/Section";
 import { CtaButton } from "@/components/CtaButton";
 import { BookingWidget } from "@/components/BookingWidget";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
+import { AerialBeachHero } from "@/components/AerialBeachHero";
+import { Reveal } from "@/components/Reveal";
 import { property } from "@/content/property";
 import { bedrooms, sleepingSummary } from "@/content/rooms";
 import { amenityCategories } from "@/content/amenities";
@@ -23,10 +25,8 @@ export default function Home() {
       />
       {/* Hero */}
       <section className="relative overflow-hidden bg-ocean-900 text-sand-50">
-        <PhotoPlaceholder
-          label="Hero: 3D animated coastal scene (Phase 3) / oceanfront photo"
-          className="absolute inset-0 opacity-30"
-        />
+        <AerialBeachHero className="absolute inset-0" />
+        <div className="absolute inset-0 bg-gradient-to-b from-ocean-900/40 via-ocean-900/45 to-ocean-900/80" />
         <div className="relative mx-auto max-w-6xl px-6 py-24 sm:py-32">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-ocean-200">
             {property.address.city}, {property.address.state} · {property.address.region}
@@ -51,7 +51,7 @@ export default function Home() {
 
       {/* Story: the name origin */}
       <Section tone="light">
-        <div className="grid gap-10 sm:grid-cols-2 sm:items-center">
+        <Reveal className="grid gap-10 sm:grid-cols-2 sm:items-center">
           <div>
             <p className="text-sm font-semibold uppercase tracking-wide text-ocean-600">
               Why &ldquo;Wright by the Beach&rdquo;
@@ -73,12 +73,12 @@ export default function Home() {
             </Link>
           </div>
           <PhotoPlaceholder label="Wright Brothers Memorial photo" className="h-64 rounded-2xl sm:h-80" />
-        </div>
+        </Reveal>
       </Section>
 
       {/* Rooms */}
       <Section id="rooms" tone="sand">
-        <div className="mb-10 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+        <Reveal className="mb-10 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-sm font-semibold uppercase tracking-wide text-ocean-600">Sleeping arrangements</p>
             <h2 className="mt-2 font-display text-3xl text-ocean-900 sm:text-4xl">
@@ -89,24 +89,26 @@ export default function Home() {
             {sleepingSummary.bedrooms} bedrooms · {sleepingSummary.fullBaths} full baths ·{" "}
             {sleepingSummary.halfBaths} half bath
           </p>
-        </div>
+        </Reveal>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {bedrooms.map((room) => (
-            <div key={room.name} className="rounded-2xl bg-sand-50 p-6 shadow-sm">
-              <PhotoPlaceholder label={`${room.name} photo`} className="mb-4 h-40 rounded-xl" />
-              <h3 className="font-display text-xl text-ocean-900">{room.name}</h3>
-              <p className="mt-1 text-sm text-ink/70">
-                {room.beds} · sleeps {room.sleeps}
-              </p>
-              {room.note && <p className="mt-2 text-sm text-ink/60">{room.note}</p>}
-            </div>
+          {bedrooms.map((room, i) => (
+            <Reveal key={room.name} delay={i * 0.05}>
+              <div className="h-full rounded-2xl bg-sand-50 p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
+                <PhotoPlaceholder label={`${room.name} photo`} className="mb-4 h-40 rounded-xl" />
+                <h3 className="font-display text-xl text-ocean-900">{room.name}</h3>
+                <p className="mt-1 text-sm text-ink/70">
+                  {room.beds} · sleeps {room.sleeps}
+                </p>
+                {room.note && <p className="mt-2 text-sm text-ink/70">{room.note}</p>}
+              </div>
+            </Reveal>
           ))}
         </div>
       </Section>
 
       {/* Amenities */}
       <Section tone="light">
-        <div className="mb-10 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+        <Reveal className="mb-10 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-sm font-semibold uppercase tracking-wide text-ocean-600">Everything included</p>
             <h2 className="mt-2 font-display text-3xl text-ocean-900 sm:text-4xl">
@@ -116,7 +118,7 @@ export default function Home() {
           <CtaButton href="/amenities" variant="secondary">
             See all amenities
           </CtaButton>
-        </div>
+        </Reveal>
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {amenityCategories.map((cat) => (
             <div key={cat.title}>
@@ -133,7 +135,7 @@ export default function Home() {
 
       {/* Gallery teaser */}
       <Section tone="sand">
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+        <Reveal className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="text-sm font-semibold uppercase tracking-wide text-ocean-600">See it for yourself</p>
             <h2 className="mt-2 font-display text-3xl text-ocean-900 sm:text-4xl">Explore the full gallery</h2>
@@ -141,37 +143,44 @@ export default function Home() {
           <CtaButton href="/gallery" variant="secondary">
             View gallery
           </CtaButton>
-        </div>
+        </Reveal>
         <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
           {["Ocean view deck", "Living area", "Hot tub", "Rec room"].map((label) => (
-            <PhotoPlaceholder key={label} label={label} className="h-32 rounded-xl sm:h-40" />
+            <Link key={label} href="/gallery" className="block">
+              <PhotoPlaceholder
+                label={label}
+                className="h-32 rounded-xl transition-transform duration-200 hover:scale-[1.02] sm:h-40"
+              />
+            </Link>
           ))}
         </div>
       </Section>
 
       {/* Reviews */}
       <Section tone="light">
-        <p className="text-sm font-semibold uppercase tracking-wide text-ocean-600">Guest reviews</p>
-        <h2 className="mt-2 font-display text-3xl text-ocean-900 sm:text-4xl">What guests are saying</h2>
-        <div className="mt-8 rounded-2xl bg-sand-100 p-8 text-ink/70">
-          <p className="italic">
-            Guest reviews are on the way — check back soon, or read verified reviews on the{" "}
-            <a
-              href="https://www.resortrealty.com/booking/wright-by-the-beach/5310/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-semibold text-ocean-800 underline underline-offset-4"
-            >
-              Resort Realty listing
-            </a>
-            .
-          </p>
-        </div>
+        <Reveal>
+          <p className="text-sm font-semibold uppercase tracking-wide text-ocean-600">Guest reviews</p>
+          <h2 className="mt-2 font-display text-3xl text-ocean-900 sm:text-4xl">What guests are saying</h2>
+          <div className="mt-8 rounded-2xl bg-sand-100 p-8 text-ink/70">
+            <p className="italic">
+              Guest reviews are on the way — check back soon, or read verified reviews on the{" "}
+              <a
+                href="https://www.resortrealty.com/booking/wright-by-the-beach/5310/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-ocean-800 underline underline-offset-4"
+              >
+                Resort Realty listing
+              </a>
+              .
+            </p>
+          </div>
+        </Reveal>
       </Section>
 
       {/* Area teaser */}
       <Section tone="sand">
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+        <Reveal className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-sm font-semibold uppercase tracking-wide text-ocean-600">Beyond the house</p>
             <h2 className="mt-2 font-display text-3xl text-ocean-900 sm:text-4xl">
@@ -181,26 +190,29 @@ export default function Home() {
           <CtaButton href="/area" variant="secondary">
             Full area guide
           </CtaButton>
-        </div>
+        </Reveal>
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {previewAttractions.map((a) => (
-            <Link
-              key={a.slug}
-              href={`/area/${a.slug}`}
-              className="block rounded-2xl bg-sand-50 p-5 shadow-sm transition-shadow hover:shadow-md"
-            >
-              <p className="text-xs font-semibold uppercase tracking-wide text-ocean-600">{a.distance}</p>
-              <h3 className="mt-2 font-display text-lg text-ocean-900">{a.name}</h3>
-              <p className="mt-2 text-sm text-ink/70">{a.teaser}</p>
-            </Link>
+          {previewAttractions.map((a, i) => (
+            <Reveal key={a.slug} delay={i * 0.05}>
+              <Link
+                href={`/area/${a.slug}`}
+                className="block h-full rounded-2xl bg-sand-50 p-5 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
+              >
+                <p className="text-xs font-semibold uppercase tracking-wide text-ocean-600">{a.distance}</p>
+                <h3 className="mt-2 font-display text-lg text-ocean-900">{a.name}</h3>
+                <p className="mt-2 text-sm text-ink/70">{a.teaser}</p>
+              </Link>
+            </Reveal>
           ))}
         </div>
       </Section>
 
       {/* FAQ preview */}
       <Section tone="light">
-        <p className="text-sm font-semibold uppercase tracking-wide text-ocean-600">Questions</p>
-        <h2 className="mt-2 font-display text-3xl text-ocean-900 sm:text-4xl">Good to know before you book</h2>
+        <Reveal>
+          <p className="text-sm font-semibold uppercase tracking-wide text-ocean-600">Questions</p>
+          <h2 className="mt-2 font-display text-3xl text-ocean-900 sm:text-4xl">Good to know before you book</h2>
+        </Reveal>
         <div className="mt-8 grid gap-6 sm:grid-cols-2">
           {previewFaqs.map((faq) => (
             <div key={faq.question}>
