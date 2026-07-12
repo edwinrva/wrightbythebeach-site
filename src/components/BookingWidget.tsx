@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { buildBookingUrl } from "@/lib/booking";
+import { trackBookingHandoff } from "@/lib/analytics";
 
 type Props = {
   className?: string;
@@ -26,6 +27,7 @@ export function BookingWidget({ className = "", compact = false }: Props) {
       rel="noopener noreferrer"
       onSubmit={(e) => {
         e.preventDefault();
+        trackBookingHandoff({ checkIn, checkOut });
         window.open(href, "_blank", "noopener,noreferrer");
       }}
     >

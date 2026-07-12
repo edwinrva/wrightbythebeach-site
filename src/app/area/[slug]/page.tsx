@@ -5,6 +5,7 @@ import { Section } from "@/components/Section";
 import { CtaButton } from "@/components/CtaButton";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
 import { attractions } from "@/content/attractions";
+import { areaGuideBodies } from "@/content/areaGuides";
 import { property } from "@/content/property";
 
 export function generateStaticParams() {
@@ -34,7 +35,7 @@ export default async function AttractionPage({
   const attraction = attractions.find((a) => a.slug === slug);
   if (!attraction) notFound();
 
-  const isWrightBrothers = attraction.slug === "wright-brothers-memorial";
+  const bodyParagraphs = areaGuideBodies[attraction.slug] ?? [];
 
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
@@ -78,24 +79,11 @@ export default async function AttractionPage({
         <div className="grid gap-10 sm:grid-cols-2 sm:items-center">
           <div>
             <p className="text-ink/80">{attraction.teaser}</p>
-            {isWrightBrothers && (
+            {bodyParagraphs.length > 0 && (
               <div className="mt-6 space-y-4 text-ink/80">
-                <p>
-                  On December 17, 1903, Orville and Wilbur Wright achieved the first sustained,
-                  controlled flight of a powered aircraft on the dunes of Kill Devil Hills — the
-                  same town where our house sits today. It&apos;s the reason the home is named{" "}
-                  <strong>Wright by the Beach</strong>.
-                </p>
-                <p>
-                  The memorial includes a visitor center with a full-scale Wright Flyer
-                  reproduction, the original flight markers showing the distance of each of the
-                  four 1903 flights, and a granite monument atop Big Kill Devil Hill — a short,
-                  worthwhile climb with sweeping views of the Outer Banks.
-                </p>
-                <p className="text-sm text-ink/60">
-                  Check the National Park Service site for current hours and admission before you
-                  go.
-                </p>
+                {bodyParagraphs.map((paragraph, i) => (
+                  <p key={i}>{paragraph}</p>
+                ))}
               </div>
             )}
           </div>

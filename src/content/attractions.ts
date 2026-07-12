@@ -1,7 +1,6 @@
 export type Attraction = {
   slug: string;
   name: string;
-  // TODO(phase-2): verify all distances/drive times from 110 Baker Ave when writing full guide pages.
   distance: string;
   teaser: string;
   category: "history" | "nature" | "beach" | "family" | "food";
@@ -21,13 +20,13 @@ export const attractions: Attraction[] = [
     name: "Ferris Avenue Beach Access",
     distance: "352 yards — 4-min walk",
     teaser:
-      "Your home beach. Lifeguarded in season, wide sand, and close enough for a lunchtime reset between waves.",
+      "Your home beach. Wide, soft sand and an outdoor shower close enough for a lunchtime reset between waves.",
     category: "beach",
   },
   {
     slug: "avalon-pier",
     name: "Avalon Fishing Pier",
-    distance: "≈ 1 mile",
+    distance: "≈ 1.5 miles — 5-min drive",
     teaser:
       "A classic 1958 Outer Banks pier — fish, grab a snack, or just watch the sunrise stretch down the coast.",
     category: "family",
@@ -35,15 +34,15 @@ export const attractions: Attraction[] = [
   {
     slug: "jockeys-ridge",
     name: "Jockey's Ridge State Park",
-    distance: "≈ 5 miles",
+    distance: "≈ 6–7 miles — 12–15 min drive",
     teaser:
-      "The tallest living sand dune on the East Coast. Fly a kite, take a hang-gliding lesson, or catch the best sunset on the OBX.",
+      "The tallest natural sand dune system on the East Coast. Fly a kite, take a hang-gliding lesson, or catch the best sunset on the OBX.",
     category: "nature",
   },
   {
     slug: "nc-aquarium",
     name: "NC Aquarium on Roanoke Island",
-    distance: "≈ 12 miles",
+    distance: "≈ 15–16 miles — 25–30 min drive",
     teaser:
       "Sea turtles, sharks, and touch tanks — the perfect rainy-day (or too-much-sun day) adventure for the crew.",
     category: "family",
@@ -51,7 +50,7 @@ export const attractions: Attraction[] = [
   {
     slug: "bodie-island-lighthouse",
     name: "Bodie Island Lighthouse",
-    distance: "≈ 14 miles",
+    distance: "≈ 14–16 miles — 25–30 min drive",
     teaser:
       "Black-and-white striped icon of the Outer Banks. Climb it in season for a view from Oregon Inlet to the sound.",
     category: "history",
@@ -59,9 +58,9 @@ export const attractions: Attraction[] = [
   {
     slug: "kill-devil-hills-eats",
     name: "Kill Devil Hills Restaurants",
-    distance: "walkable & short drives",
+    distance: "in town — most within a 5–10 min drive",
     teaser:
-      "From fresh-catch seafood shacks to donut runs on the Beach Road, the best of OBX eating is minutes from the driveway.",
+      "From fresh-catch seafood shacks to a 50-year-old Beach Road diner, the best of OBX eating is minutes from the driveway.",
     category: "food",
   },
 ];
