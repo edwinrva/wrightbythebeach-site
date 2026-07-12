@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Section } from "@/components/Section";
 import { CtaButton } from "@/components/CtaButton";
 import { GalleryGrid } from "@/components/GalleryGrid";
+import { photos } from "@/content/photos";
 
 export const metadata: Metadata = {
   title: "Photo Gallery",
@@ -9,22 +10,51 @@ export const metadata: Metadata = {
     "See every room, deck, and view at Wright by the Beach — a 5-bedroom oceanside vacation rental in Kill Devil Hills, NC.",
 };
 
-const galleryGroups: { title: string; photos: string[] }[] = [
+const galleryGroups = [
   {
     title: "Exterior & Decks",
-    photos: ["Front exterior", "Sun deck", "Covered deck", "Hot tub"],
+    photos: [
+      { label: "Front Exterior", ...photos.exteriorFront },
+      { label: "Front Porch", ...photos.frontPorch },
+      { label: "Rear Deck", ...photos.exteriorRearDeck },
+      { label: "Hot Tub", ...photos.hotTub },
+      { label: "Gas Grill", ...photos.gasGrill },
+    ],
   },
   {
     title: "Living & Dining",
-    photos: ["Living room", "Kitchen", "Breakfast bar", "Dining table"],
+    photos: [
+      { label: "Living Room", ...photos.livingRoom },
+      { label: "Kitchen", ...photos.kitchen },
+      { label: "Breakfast Bar", ...photos.breakfastBar },
+      { label: "Dining Table", ...photos.diningTable },
+    ],
   },
   {
     title: "Bedrooms",
-    photos: ["King Suite I", "King Suite II", "Queen Room", "Bunk Room", "Twin Room"],
+    photos: [
+      { label: "King Suite I", ...photos.kingSuite1 },
+      { label: "King Suite II", ...photos.kingSuite2 },
+      { label: "Queen Room", ...photos.queenRoom },
+      { label: "Bunk Room", ...photos.bunkRoom },
+      { label: "Twin Room", ...photos.twinRoom },
+    ],
   },
   {
-    title: "Rec Room & Views",
-    photos: ["Foosball table", "Reading nook", "Ocean view", "Beach access walk"],
+    title: "Rec Room, Bath & Stairs",
+    photos: [
+      { label: "Rec Room", ...photos.recRoom },
+      { label: "Reading Nook", ...photos.readingNook },
+      { label: "Bathroom", ...photos.bathroomShower },
+      { label: "Stairwell", ...photos.stairwell },
+    ],
+  },
+  {
+    title: "Convenience",
+    photos: [
+      { label: "Keyless Entry", ...photos.keylessEntry },
+      { label: "Laundry", ...photos.laundry },
+    ],
   },
 ];
 
@@ -34,7 +64,6 @@ export default function GalleryPage() {
       <Section tone="ocean" className="text-center">
         <h1 className="font-display text-4xl sm:text-5xl">Photo Gallery</h1>
         <p className="mx-auto mt-4 max-w-xl text-sand-100">
-          {/* TODO(phase-0): replace placeholders with licensed listing photos */}
           A closer look at every room, deck, and view at Wright by the Beach.
         </p>
       </Section>

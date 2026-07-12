@@ -3,8 +3,9 @@
 import { useCallback, useEffect, useState, type ReactNode } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { PhotoPlaceholder } from "./PhotoPlaceholder";
+import { PropertyImage } from "./PropertyImage";
 
-type Photo = { label: string };
+type Photo = { label: string; src?: string; alt?: string };
 
 /**
  * Render-prop lightbox: manages open/close/prev/next state over a flat photo
@@ -67,7 +68,15 @@ export function Lightbox({
               transition={{ duration: 0.2 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <PhotoPlaceholder label={activePhoto.label} className="aspect-[4/3] w-full rounded-2xl" />
+              {activePhoto.src ? (
+                <PropertyImage
+                  src={activePhoto.src}
+                  alt={activePhoto.alt ?? activePhoto.label}
+                  className="aspect-[4/3] w-full rounded-2xl"
+                />
+              ) : (
+                <PhotoPlaceholder label={activePhoto.label} className="aspect-[4/3] w-full rounded-2xl" />
+              )}
               <p className="mt-3 text-center text-sm text-sand-100">{activePhoto.label}</p>
 
               <button
@@ -104,13 +113,18 @@ export function Lightbox({
 
 export function LightboxThumb({
   label,
+  src,
+  alt,
   className,
   onClick,
 }: {
   label: string;
+  src?: string;
+  alt?: string;
   className: string;
   onClick: () => void;
 }) {
+  const imgClassName = `${className} transition-transform duration-200 hover:scale-[1.02]`;
   return (
     <button
       type="button"
@@ -118,10 +132,11 @@ export function LightboxThumb({
       className="cursor-zoom-in rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-ocean-600 focus-visible:ring-offset-2"
       aria-label={`View larger photo: ${label}`}
     >
-      <PhotoPlaceholder
-        label={label}
-        className={`${className} transition-transform duration-200 hover:scale-[1.02]`}
-      />
+      {src ? (
+        <PropertyImage src={src} alt={alt ?? label} className={imgClassName} />
+      ) : (
+        <PhotoPlaceholder label={label} className={imgClassName} />
+      )}
     </button>
   );
 }

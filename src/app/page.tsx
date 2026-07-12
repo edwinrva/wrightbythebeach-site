@@ -2,14 +2,14 @@ import Link from "next/link";
 import { Section } from "@/components/Section";
 import { CtaButton } from "@/components/CtaButton";
 import { BookingWidget } from "@/components/BookingWidget";
-import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
-import { AerialBeachHero } from "@/components/AerialBeachHero";
+import { PropertyImage } from "@/components/PropertyImage";
 import { Reveal } from "@/components/Reveal";
 import { property } from "@/content/property";
 import { bedrooms, sleepingSummary } from "@/content/rooms";
 import { amenityCategories } from "@/content/amenities";
 import { attractions } from "@/content/attractions";
 import { faqs } from "@/content/faqs";
+import { photos } from "@/content/photos";
 import { lodgingBusinessJsonLd } from "@/lib/structuredData";
 
 export default function Home() {
@@ -25,7 +25,7 @@ export default function Home() {
       />
       {/* Hero */}
       <section className="relative overflow-hidden bg-ocean-900 text-sand-50">
-        <AerialBeachHero className="absolute inset-0" />
+        <PropertyImage {...photos.heroAerial} priority absolute />
         <div className="absolute inset-0 bg-gradient-to-b from-ocean-900/40 via-ocean-900/45 to-ocean-900/80" />
         <div className="relative mx-auto max-w-6xl px-6 py-24 sm:py-32">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-ocean-200">
@@ -72,7 +72,7 @@ export default function Home() {
               Read the full story →
             </Link>
           </div>
-          <PhotoPlaceholder label="Wright Brothers Memorial photo" className="h-64 rounded-2xl sm:h-80" />
+          <PropertyImage {...photos.wrightBrothersMemorial} className="h-64 rounded-2xl sm:h-80" />
         </Reveal>
       </Section>
 
@@ -94,7 +94,7 @@ export default function Home() {
           {bedrooms.map((room, i) => (
             <Reveal key={room.name} delay={i * 0.05}>
               <div className="h-full rounded-2xl bg-sand-50 p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
-                <PhotoPlaceholder label={`${room.name} photo`} className="mb-4 h-40 rounded-xl" />
+                <PropertyImage {...room.photo} className="mb-4 h-40 rounded-xl" />
                 <h3 className="font-display text-xl text-ocean-900">{room.name}</h3>
                 <p className="mt-1 text-sm text-ink/70">
                   {room.beds} · sleeps {room.sleeps}
@@ -145,10 +145,16 @@ export default function Home() {
           </CtaButton>
         </Reveal>
         <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
-          {["Ocean view deck", "Living area", "Hot tub", "Rec room"].map((label) => (
-            <Link key={label} href="/gallery" className="block">
-              <PhotoPlaceholder
-                label={label}
+          {[
+            { label: "Front Exterior", ...photos.exteriorFront },
+            { label: "Living Room", ...photos.livingRoom },
+            { label: "Hot Tub", ...photos.hotTub },
+            { label: "Rec Room", ...photos.recRoom },
+          ].map((photo) => (
+            <Link key={photo.label} href="/gallery" className="block">
+              <PropertyImage
+                src={photo.src}
+                alt={photo.alt}
                 className="h-32 rounded-xl transition-transform duration-200 hover:scale-[1.02] sm:h-40"
               />
             </Link>

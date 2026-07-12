@@ -4,9 +4,16 @@ import Link from "next/link";
 import { Section } from "@/components/Section";
 import { CtaButton } from "@/components/CtaButton";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
+import { PropertyImage } from "@/components/PropertyImage";
 import { attractions } from "@/content/attractions";
 import { areaGuideBodies } from "@/content/areaGuides";
 import { property } from "@/content/property";
+import { photos } from "@/content/photos";
+
+const attractionPhotos: Partial<Record<string, (typeof photos)[keyof typeof photos]>> = {
+  "wright-brothers-memorial": photos.wrightBrothersMemorial,
+  "avalon-pier": photos.avalonPier,
+};
 
 export function generateStaticParams() {
   return attractions.map((a) => ({ slug: a.slug }));
@@ -36,6 +43,7 @@ export default async function AttractionPage({
   if (!attraction) notFound();
 
   const bodyParagraphs = areaGuideBodies[attraction.slug] ?? [];
+  const photo = attractionPhotos[attraction.slug];
 
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
@@ -87,7 +95,11 @@ export default async function AttractionPage({
               </div>
             )}
           </div>
-          <PhotoPlaceholder label={`${attraction.name} photo`} className="h-64 rounded-2xl sm:h-80" />
+          {photo ? (
+            <PropertyImage {...photo} className="h-64 rounded-2xl sm:h-80" />
+          ) : (
+            <PhotoPlaceholder label={`${attraction.name} photo`} className="h-64 rounded-2xl sm:h-80" />
+          )}
         </div>
         <div className="mt-12 text-center">
           <CtaButton href="/book">Check availability</CtaButton>
