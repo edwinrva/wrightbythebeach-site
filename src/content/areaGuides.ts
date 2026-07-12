@@ -4,9 +4,10 @@ export const areaGuideBodies: Record<string, string[]> = {
     "The memorial includes a visitor center with a full-scale Wright Flyer reproduction, the original flight markers showing the distance of each of the four 1903 flights, and a granite monument atop Big Kill Devil Hill — a short, worthwhile climb with sweeping views of the Outer Banks.",
     "Check the National Park Service site for current hours and admission before you go.",
   ],
-  "ferris-avenue-beach": [
-    "Ferris Avenue Beach Access is the closest stretch of sand to Wright by the Beach — a short stroll away, no car required. This town-maintained access point offers paved parking, an accessible beach overlook, an outdoor shower, and a restroom, so you can rinse off before heading back.",
-    "The beach here is wide, soft, and classic Kill Devil Hills — good for swimming, sunbathing, and surf fishing. There's no lifeguard on duty, so it's best for confident swimmers and families keeping a close eye on kids. In peak summer, the small lot can fill by mid-morning, but since you're walking, that's one less thing to worry about.",
+  "beach-access": [
+    "Two town-maintained access points sit just a short walk from Wright by the Beach — Raleigh Avenue and Ferris Avenue — and both have paved parking, handicap parking, an accessible beach overlook, an outdoor shower, and a porta john.",
+    "Our recommendation: take Raleigh Avenue. It's a flat, no-stairs walk the whole way, which makes it the easiest route with a cooler, folding chairs, or kids in tow. Ferris Avenue is right nearby with the exact same amenities if you'd rather switch it up.",
+    "The beach here is wide, soft, classic Kill Devil Hills sand — good for swimming, sunbathing, and surf fishing. There's no lifeguard on duty at either access, so it's best for confident swimmers and families keeping a close eye on kids.",
   ],
   "avalon-pier": [
     "A Kill Devil Hills landmark since 1958, Avalon Fishing Pier stretches roughly 700 feet into the Atlantic at milepost 6 on the Beach Road. It's one of the Outer Banks' classic wooden fishing piers, drawing anglers after spot, bluefish, drum, and mackerel depending on the season, along with plenty of folks who just come to watch the sunrise.",
@@ -26,8 +27,10 @@ export const areaGuideBodies: Record<string, string[]> = {
     "During the warmer months, visitors can climb the lighthouse's 200-plus steps for sweeping views over the marshes, dunes, and Oregon Inlet. Climbing is typically offered spring through fall on a seasonal schedule with timed tickets, so check current dates and availability before planning a climb — the grounds are generally open for photos and walking year-round.",
   ],
   "kill-devil-hills-eats": [
-    "Kill Devil Hills has one of the OBX's densest and most laid-back dining scenes, especially along the Beach Road (N. Virginia Dare Trail) and Route 158, with dozens of options ranging from casual seafood shacks to sit-down favorites. It's easy to eat well here without ever needing a reservation.",
-    "Long-running local favorites include Goombays Grille & Raw Bar, serving Caribbean-influenced seafood and pub fare since 1992; the Jolly Roger, a diner-style institution on the Beach Road for over 50 years known for breakfast; and Dare Devil's Pizzeria, a family-owned pizza spot that's been a Beach Road fixture since 1987.",
-    "Beyond these, the area is packed with fresh seafood houses, casual grills, ice cream and pizza stops, and a handful of upscale options — a good mix of come-as-you-are spots after a beach day. Hours and seasons can shift, so it's worth checking current listings when planning a specific night out.",
+    "These are the spots we send guests to, in our own rotation year after year. Jack Brown's Beer & Burger Joint is a short walk away — great burgers (including a homemade black bean burger), a solid craft beer list, indoor and outdoor seating, and summer concerts. It's popular, so parking can be tight; walking is easiest.",
+    "Right across the street is Thai Room, serving genuinely excellent, authentic Thai food. It gets busy at peak times, so ordering online for pickup is the move if you don't want to wait.",
+    "Mama Kwan's Tiki Bar & Grill is one of our all-time favorites — go for the fish tacos and the creative drinks. They run a text-message waitlist, so put your name in early and be ready to show up within 5 minutes once they call you.",
+    "For Mexican, 3 Tequilas Mexican Restaurant does great fajitas and fish tacos with friendly service, plus deals worth planning around: kids eat free Mondays, $1 hard tacos Tuesdays, and half-price 16 oz beers Thursdays. Goombays Grill & Raw Bar is another favorite for fresh, locally caught fish with specials that rotate daily. And when you just want quick, no-fuss counter service, Pigman's Bar-B-Que delivers on wings, BBQ, and their tuna specialty — it also caters well if you're feeding the whole house.",
+    "Need groceries instead? Publix, Target, Harris Teeter, and Food Lion are all within about 2.5 miles, so stocking the kitchen for the week is an easy detour on the way in.",
   ],
 };

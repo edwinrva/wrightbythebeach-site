@@ -4,7 +4,7 @@ export const faqs: Faq[] = [
   {
     question: "How far is the house from the beach?",
     answer:
-      "About a 4-minute walk (352 yards) to the Ferris Avenue beach access. No car, no parking hassle — just grab the included beach gear and go.",
+      "About a 5-minute walk (352 yards). We recommend the Raleigh Avenue beach access — flat, no stairs, with paved and handicap parking, an accessible beach overlook, an outdoor shower, and a porta john. Ferris Avenue is a same-amenities alternate right nearby. No car, no parking hassle — just grab the included beach gear and go.",
   },
   {
     question: "Is the house dog friendly?",
@@ -14,7 +14,7 @@ export const faqs: Faq[] = [
   {
     question: "How does check-in work?",
     answer:
-      "Keyless entry — you'll receive a door code before arrival, so there's no check-in desk or key pickup. Check-in and check-out times are set by Resort Realty and confirmed with your booking.",
+      "Keyless entry — you'll get a unique door code before arrival, reset for every stay, so there's no check-in desk or key pickup. Check-in is at 4:00 PM and check-out is at 10:00 AM, unless you've purchased a late departure.",
   },
   {
     question: "Are linens and towels included?",
@@ -49,5 +49,10 @@ export const faqs: Faq[] = [
   {
     question: "Is smoking allowed?",
     answer: "No, Wright by the Beach is a non-smoking home.",
+  },
+  {
+    question: "Where do we park, and are there house rules to know about?",
+    answer:
+      "Free parking is available in the driveway; street parking is prohibited between the posted signs and is towed if ignored. Quiet hours run 11:00 PM to 8:00 AM, and the home doesn't allow fireworks or grilling on the deck.",
   },
 ];

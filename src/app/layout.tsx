@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: "%s | Wright by the Beach",
   },
   description:
-    "A 5-bedroom oceanside vacation rental in Kill Devil Hills, Outer Banks, NC — sleeps 10, hot tub, ocean views, and a 4-minute walk to the beach. Steps from the Wright Brothers Memorial.",
+    "A 5-bedroom oceanside vacation rental in Kill Devil Hills, Outer Banks, NC — sleeps 10, hot tub, ocean views, and a no-stairs, 5-minute walk to the beach. Steps from the Wright Brothers Memorial.",
   keywords: [
     "vacation rental Kill Devil Hills",
     "Outer Banks vacation rental",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Wright by the Beach | Kill Devil Hills, NC Vacation Rental",
     description:
-      "A 5-bedroom oceanside vacation rental in Kill Devil Hills, Outer Banks, NC — sleeps 10, hot tub, ocean views, and a 4-minute walk to the beach.",
+      "A 5-bedroom oceanside vacation rental in Kill Devil Hills, Outer Banks, NC — sleeps 10, hot tub, ocean views, and a no-stairs, 5-minute walk to the beach.",
     url: "https://www.wrightbythebeach.com",
     siteName: "Wright by the Beach",
     locale: "en_US",

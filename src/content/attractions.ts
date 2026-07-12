@@ -16,11 +16,11 @@ export const attractions: Attraction[] = [
     category: "history",
   },
   {
-    slug: "ferris-avenue-beach",
-    name: "Ferris Avenue Beach Access",
-    distance: "352 yards — 4-min walk",
+    slug: "beach-access",
+    name: "Beach Access: Raleigh & Ferris Avenue",
+    distance: "352 yards — 5-min walk",
     teaser:
-      "Your home beach. Wide, soft sand and an outdoor shower close enough for a lunchtime reset between waves.",
+      "Your home beach, and no stairs to get there. We recommend the Raleigh Avenue access — flat, paved, and easy with a cooler, chairs, or little legs.",
     category: "beach",
   },
   {
@@ -57,10 +57,10 @@ export const attractions: Attraction[] = [
   },
   {
     slug: "kill-devil-hills-eats",
-    name: "Kill Devil Hills Restaurants",
+    name: "Our Favorite Local Restaurants",
     distance: "in town — most within a 5–10 min drive",
     teaser:
-      "From fresh-catch seafood shacks to a 50-year-old Beach Road diner, the best of OBX eating is minutes from the driveway.",
+      "Our go-to spots after a day at the beach, from burgers and craft beer to fish tacos on a waitlist worth the wait.",
     category: "food",
   },
 ];
