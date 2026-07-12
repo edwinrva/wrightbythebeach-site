@@ -22,6 +22,22 @@ export default function AmenitiesPage() {
       </Section>
 
       <Section tone="light">
+        <div className="mb-12 grid gap-4 rounded-2xl border border-ocean-200 bg-ocean-50 p-6 sm:grid-cols-2 sm:p-8">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wide text-ocean-600">Always included</p>
+            <h2 className="mt-1 font-display text-xl text-ocean-900">Beach gear rental included</h2>
+            <p className="mt-2 text-sm text-ink/75">
+              Chairs, umbrellas, and more through the VayK Life program — no rental counter, no extra fee.
+            </p>
+          </div>
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wide text-ocean-600">Always included</p>
+            <h2 className="mt-1 font-display text-xl text-ocean-900">Complimentary linens &amp; made beds</h2>
+            <p className="mt-2 text-sm text-ink/75">
+              Every bed is made before you arrive — no linen fee, no packing sheets.
+            </p>
+          </div>
+        </div>
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {amenityCategories.map((cat) => (
             <div key={cat.title} className="rounded-2xl bg-sand-100 p-6">

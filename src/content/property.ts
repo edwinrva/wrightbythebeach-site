@@ -47,5 +47,6 @@ export const property = {
     "Ocean views from sun decks",
     "Sleeps 10 across 5 bedrooms",
     "Free beach gear included",
+    "Complimentary linens & made beds",
   ],
 } as const;
