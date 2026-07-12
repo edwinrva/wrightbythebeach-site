@@ -105,9 +105,47 @@ export const photos = {
     src: "/images/site/nc-aquarium.jpg",
     alt: "Exterior of the North Carolina Aquarium on Roanoke Island",
   },
+  beachAccessMap: {
+    src: "/images/site/beach-access-map.jpg",
+    alt: "Map highlighting the 5-minute walk from Wright by the Beach to the Raleigh Avenue beach access",
+  },
+  jackBrowns: {
+    src: "/images/site/jack-browns.jpg",
+    alt: "Burger from Jack Brown's Beer & Burger Joint",
+  },
+  thaiRoom: {
+    src: "/images/site/thai-room.jpg",
+    alt: "Thai Room restaurant sign",
+  },
+  mamaKwans: {
+    src: "/images/site/mama-kwans.jpg",
+    alt: "Mama Kwan's Tiki Bar & Grill exterior and patio",
+  },
+  threeTequilas: {
+    src: "/images/site/three-tequilas.jpg",
+    alt: "3 Tequilas Mexican Restaurant exterior",
+  },
+  goombays: {
+    src: "/images/site/goombays.jpg",
+    alt: "Goombays Grill & Raw Bar exterior",
+  },
+  pigmans: {
+    src: "/images/site/pigmans.jpg",
+    alt: "Pigman's Bar-B-Que sign",
+  },
 } as const satisfies Record<string, Photo>;
 
 /** Credit required by a photo's license (e.g. CC BY-SA); shown as a small caption. */
 export const photoAttribution: Partial<Record<keyof typeof photos, string>> = {
   ncAquarium: "Photo: RadioFan at English Wikipedia, CC BY-SA 3.0, via Wikimedia Commons",
 };
+
+/** Restaurant photo grid for the kill-devil-hills-eats area guide page. */
+export const restaurantPhotos: { name: string; photo: Photo }[] = [
+  { name: "Jack Brown's Beer & Burger Joint", photo: photos.jackBrowns },
+  { name: "Thai Room", photo: photos.thaiRoom },
+  { name: "Mama Kwan's Tiki Bar & Grill", photo: photos.mamaKwans },
+  { name: "3 Tequilas Mexican Restaurant", photo: photos.threeTequilas },
+  { name: "Goombays Grill & Raw Bar", photo: photos.goombays },
+  { name: "Pigman's Bar-B-Que", photo: photos.pigmans },
+];
