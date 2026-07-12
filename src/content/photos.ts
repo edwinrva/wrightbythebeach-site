@@ -71,7 +71,7 @@ export const photos = {
   },
   bunkRoom: {
     src: "/images/site/bunk-room.jpg",
-    alt: "Bunk Room with two double-over-double bunk beds",
+    alt: "Bunk Room with two queen-over-queen bunk beds",
   },
   twinRoom: {
     src: "/images/site/twin-room.jpg",

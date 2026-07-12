@@ -37,8 +37,8 @@ export const property = {
   headline: "A five-bedroom oceanside retreat in the heart of Kill Devil Hills",
   description: [
     "Five minutes. That's how long it takes to walk from your keyless front door to your toes in the Atlantic — no stairs, no soft-sand slog, just a flat, easy walk down Raleigh Avenue. Wright by the Beach is a four-level, five-bedroom oceanside home in Kill Devil Hills — the very town where the Wright Brothers proved the impossible in 1903, and the inspiration for our name.",
-    "Mornings start with coffee and ocean views from the sun deck. Afternoons belong to the beach — gear included, cooler to boogie boards, so pack light. Evenings wind down in the hot tub under Outer Banks stars, while the kids battle it out at the foosball table in the rec room.",
-    "With two king suites, room for ten, a chef-ready kitchen with breakfast bar, and covered decks for the one rainy afternoon you might get, this is the house that turns a week at the beach into the week everyone talks about at Thanksgiving. And yes — bring the dog.",
+    "Mornings start with coffee and ocean views from the sun deck. Afternoons belong to the beach — gear included, cooler to boogie boards, so pack light. Evenings wind down in the hot tub under Outer Banks stars, while the kids battle it out at foosball and the arcade game in the rec room, or settle into the second-floor living room for board games and a movie on the big TV with soundbar.",
+    "With two king suites, room for ten, a fully stocked kitchen with breakfast bar and ice maker, and covered decks for the one rainy afternoon you might get, this is the house that turns a week at the beach into the week everyone talks about at Thanksgiving. And yes — bring the dog.",
   ],
   highlights: [
     "No-stairs beach access, 5 min away",

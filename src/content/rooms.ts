@@ -13,7 +13,7 @@ export const bedrooms: Room[] = [
     name: "King Suite I",
     beds: "1 King",
     sleeps: 2,
-    note: "TV with surround sound",
+    note: "TV",
     photo: photos.kingSuite1,
   },
   {
@@ -32,7 +32,7 @@ export const bedrooms: Room[] = [
   },
   {
     name: "Bunk Room",
-    beds: "2 Double-over-Double bunks",
+    beds: "2 Queen-over-Queen bunks",
     sleeps: 3,
     note: "Kids' favorite — sleeps a whole crew",
     photo: photos.bunkRoom,

@@ -16,8 +16,9 @@ export const amenityCategories: AmenityCategory[] = [
   {
     title: "Entertainment",
     items: [
-      { name: "Rec room with foosball", detail: "Dedicated game space" },
-      { name: "7 TVs with surround sound", detail: "One in nearly every room" },
+      { name: "Rec room with foosball & arcade game", detail: "Plus a TV — no surround sound" },
+      { name: "Second-floor living room", detail: "Big TV with soundbar, plus plenty of board games" },
+      { name: "7 TVs throughout the home", detail: "One in nearly every room" },
       { name: "Reading nook", detail: "Quiet upstairs corner" },
       { name: "High-speed WiFi", detail: "Whole-house coverage" },
     ],
@@ -25,7 +26,8 @@ export const amenityCategories: AmenityCategory[] = [
   {
     title: "Kitchen & Dining",
     items: [
-      { name: "Spacious open kitchen" },
+      { name: "Fully stocked kitchen", detail: "Everything you need to prep a meal" },
+      { name: "Ice maker", detail: "Ice always on hand" },
       { name: "Breakfast bar", detail: "Seats 4" },
       { name: "Dining table", detail: "Seats 6" },
       { name: "Dishwasher & microwave" },

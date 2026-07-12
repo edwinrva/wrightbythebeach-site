@@ -34,7 +34,7 @@ export const faqs: Faq[] = [
   {
     question: "How many people can the house sleep?",
     answer:
-      "Up to 10 guests across 5 bedrooms: two kings, a queen, two double-over-double bunk beds, and a twin, with 3.5 bathrooms.",
+      "Up to 10 guests across 5 bedrooms: two kings, a queen, two queen-over-queen bunk beds, and a twin, with 3.5 bathrooms.",
   },
   {
     question: "How do I book, and what is the cancellation policy?",
