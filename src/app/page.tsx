@@ -25,7 +25,7 @@ export default function Home() {
       />
       {/* Hero */}
       <section className="relative overflow-hidden bg-ocean-900 text-sand-50">
-        <PropertyImage {...photos.heroAerial} priority absolute />
+        <PropertyImage {...photos.heroAerial} priority absolute objectPosition="70% center" />
         <div className="absolute inset-0 bg-gradient-to-b from-ocean-900/40 via-ocean-900/45 to-ocean-900/80" />
         <div className="relative mx-auto max-w-6xl px-6 py-24 sm:py-32">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-ocean-200">

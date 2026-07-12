@@ -3,7 +3,7 @@ export type Photo = { src: string; alt: string };
 export const photos = {
   heroAerial: {
     src: "/images/site/hero-aerial.jpg",
-    alt: "Ocean waves washing onto the sandy shore near Wright by the Beach",
+    alt: "A child leaping down a dune with a toy biplane raised overhead, near Wright by the Beach",
   },
   wrightBrothersMemorial: {
     src: "/images/site/wright-brothers-memorial.jpg",
