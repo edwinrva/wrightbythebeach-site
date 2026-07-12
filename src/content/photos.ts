@@ -35,7 +35,7 @@ export const photos = {
   },
   recRoom: {
     src: "/images/site/rec-room.jpg",
-    alt: "Rec room with foosball table and arcade game",
+    alt: "Rec room with foosball table, arcade game, and wall-mounted TV",
   },
   livingRoom: {
     src: "/images/site/living-room.jpg",
