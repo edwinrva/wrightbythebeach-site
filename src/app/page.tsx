@@ -162,24 +162,19 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* Reviews */}
+      {/* Booking */}
       <Section tone="light">
-        <Reveal>
-          <p className="text-sm font-semibold uppercase tracking-wide text-ocean-600">Guest reviews</p>
-          <h2 className="mt-2 font-display text-3xl text-ocean-900 sm:text-4xl">What guests are saying</h2>
-          <div className="mt-8 rounded-2xl bg-sand-100 p-8 text-ink/70">
-            <p className="italic">
-              Guest reviews are on the way — check back soon, or read verified reviews on the{" "}
-              <a
-                href="https://www.resortrealty.com/booking/wright-by-the-beach/5310/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-semibold text-ocean-800 underline underline-offset-4"
-              >
-                Resort Realty listing
-              </a>
-              .
-            </p>
+        <Reveal className="text-center">
+          <p className="text-sm font-semibold uppercase tracking-wide text-ocean-600">Availability</p>
+          <h2 className="mt-2 font-display text-3xl text-ocean-900 sm:text-4xl">
+            Check dates for your week away
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-ink/70">
+            Pick your check-in and check-out — we&apos;ll take you straight to Resort Realty&apos;s
+            secure checkout with your dates already filled in.
+          </p>
+          <div className="mx-auto mt-8 max-w-xl">
+            <BookingWidget />
           </div>
         </Reveal>
       </Section>
