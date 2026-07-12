@@ -3,16 +3,19 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Section } from "@/components/Section";
 import { CtaButton } from "@/components/CtaButton";
-import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
 import { PropertyImage } from "@/components/PropertyImage";
 import { attractions } from "@/content/attractions";
 import { areaGuideBodies } from "@/content/areaGuides";
 import { property } from "@/content/property";
-import { photos } from "@/content/photos";
+import { photos, photoAttribution } from "@/content/photos";
+import { AnimatedCoastalVisual } from "@/components/AnimatedCoastalVisual";
 
-const attractionPhotos: Partial<Record<string, (typeof photos)[keyof typeof photos]>> = {
-  "wright-brothers-memorial": photos.wrightBrothersMemorial,
-  "avalon-pier": photos.avalonPier,
+const attractionPhotoKeys: Partial<Record<string, keyof typeof photos>> = {
+  "wright-brothers-memorial": "wrightBrothersMemorial",
+  "avalon-pier": "avalonPier",
+  "jockeys-ridge": "jockeysRidge",
+  "bodie-island-lighthouse": "bodieIslandLighthouse",
+  "nc-aquarium": "ncAquarium",
 };
 
 export function generateStaticParams() {
@@ -43,7 +46,9 @@ export default async function AttractionPage({
   if (!attraction) notFound();
 
   const bodyParagraphs = areaGuideBodies[attraction.slug] ?? [];
-  const photo = attractionPhotos[attraction.slug];
+  const photoKey = attractionPhotoKeys[attraction.slug];
+  const photo = photoKey ? photos[photoKey] : undefined;
+  const attribution = photoKey ? photoAttribution[photoKey] : undefined;
 
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
@@ -95,11 +100,14 @@ export default async function AttractionPage({
               </div>
             )}
           </div>
-          {photo ? (
-            <PropertyImage {...photo} className="h-64 rounded-2xl sm:h-80" />
-          ) : (
-            <PhotoPlaceholder label={`${attraction.name} photo`} className="h-64 rounded-2xl sm:h-80" />
-          )}
+          <div>
+            {photo ? (
+              <PropertyImage {...photo} className="h-64 rounded-2xl sm:h-80" />
+            ) : (
+              <AnimatedCoastalVisual className="h-64 rounded-2xl sm:h-80" />
+            )}
+            {attribution && <p className="mt-2 text-xs text-ink/70">{attribution}</p>}
+          </div>
         </div>
         <div className="mt-12 text-center">
           <CtaButton href="/book">Check availability</CtaButton>

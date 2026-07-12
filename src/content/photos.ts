@@ -93,4 +93,21 @@ export const photos = {
     src: "/images/site/stairwell.jpg",
     alt: "Interior stairwell connecting all four levels",
   },
+  jockeysRidge: {
+    src: "/images/site/jockeys-ridge.jpg",
+    alt: "Sand dunes at Jockey's Ridge State Park in Nags Head, NC",
+  },
+  bodieIslandLighthouse: {
+    src: "/images/site/bodie-island-lighthouse.jpg",
+    alt: "The black-and-white striped Bodie Island Lighthouse",
+  },
+  ncAquarium: {
+    src: "/images/site/nc-aquarium.jpg",
+    alt: "Exterior of the North Carolina Aquarium on Roanoke Island",
+  },
 } as const satisfies Record<string, Photo>;
+
+/** Credit required by a photo's license (e.g. CC BY-SA); shown as a small caption. */
+export const photoAttribution: Partial<Record<keyof typeof photos, string>> = {
+  ncAquarium: "Photo: RadioFan at English Wikipedia, CC BY-SA 3.0, via Wikimedia Commons",
+};
