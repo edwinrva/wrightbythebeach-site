@@ -7,9 +7,10 @@ import { trackBookingHandoff } from "@/lib/analytics";
 type Props = {
   className?: string;
   compact?: boolean;
+  source: string;
 };
 
-export function BookingWidget({ className = "", compact = false }: Props) {
+export function BookingWidget({ className = "", compact = false, source }: Props) {
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
 
@@ -27,7 +28,7 @@ export function BookingWidget({ className = "", compact = false }: Props) {
       rel="noopener noreferrer"
       onSubmit={(e) => {
         e.preventDefault();
-        trackBookingHandoff({ checkIn, checkOut });
+        trackBookingHandoff({ checkIn, checkOut, source });
         window.open(href, "_blank", "noopener,noreferrer");
       }}
     >

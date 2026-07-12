@@ -71,7 +71,7 @@ export default function GalleryPage() {
       <Section tone="light">
         <GalleryGrid groups={galleryGroups} />
         <div className="mt-14 text-center">
-          <CtaButton href="/book">Check availability</CtaButton>
+          <CtaButton href="/book" trackingLocation="gallery_page">Check availability</CtaButton>
         </div>
       </Section>
     </>

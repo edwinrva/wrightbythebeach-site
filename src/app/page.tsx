@@ -44,7 +44,7 @@ export default function Home() {
             ))}
           </div>
           <div className="mt-10 max-w-xl">
-            <BookingWidget />
+            <BookingWidget source="homepage_hero" />
           </div>
         </div>
       </section>
@@ -174,7 +174,7 @@ export default function Home() {
             secure checkout with your dates already filled in.
           </p>
           <div className="mx-auto mt-8 max-w-xl">
-            <BookingWidget />
+            <BookingWidget source="homepage_availability" />
           </div>
         </Reveal>
       </Section>
@@ -236,7 +236,7 @@ export default function Home() {
             trusted local property manager.
           </p>
           <div className="mx-auto mt-8 max-w-xl">
-            <BookingWidget />
+            <BookingWidget source="homepage_final_cta" />
           </div>
         </div>
       </Section>

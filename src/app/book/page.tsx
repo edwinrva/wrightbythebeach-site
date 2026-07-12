@@ -19,7 +19,7 @@ export default function BookPage() {
           checkout for {property.name}, with your dates already filled in.
         </p>
         <div className="mt-10">
-          <BookingWidget />
+          <BookingWidget source="book_page" />
         </div>
         <p className="mt-6 text-sm text-ink/70">
           Prefer to talk to someone? Call {property.manager} at{" "}

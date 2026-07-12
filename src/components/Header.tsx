@@ -30,7 +30,7 @@ export function Header() {
           ))}
         </nav>
         <div className="flex items-center gap-2">
-          <CtaButton href="/book" className="text-xs sm:text-sm">
+          <CtaButton href="/book" className="text-xs sm:text-sm" trackingLocation="header">
             Book Now
           </CtaButton>
           <button

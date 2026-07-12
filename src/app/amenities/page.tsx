@@ -54,7 +54,7 @@ export default function AmenitiesPage() {
           ))}
         </div>
         <div className="mt-12 text-center">
-          <CtaButton href="/book">Check availability</CtaButton>
+          <CtaButton href="/book" trackingLocation="amenities_page">Check availability</CtaButton>
         </div>
       </Section>
     </>

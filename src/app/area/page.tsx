@@ -36,7 +36,7 @@ export default function AreaPage() {
           ))}
         </div>
         <div className="mt-12 text-center">
-          <CtaButton href="/book">Check availability</CtaButton>
+          <CtaButton href="/book" trackingLocation="area_page">Check availability</CtaButton>
         </div>
       </Section>
     </>

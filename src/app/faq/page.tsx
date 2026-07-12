@@ -51,7 +51,7 @@ export default function FaqPage() {
           ))}
         </div>
         <div className="mt-12 text-center">
-          <CtaButton href="/book">Check availability</CtaButton>
+          <CtaButton href="/book" trackingLocation="faq_page">Check availability</CtaButton>
         </div>
       </Section>
     </>

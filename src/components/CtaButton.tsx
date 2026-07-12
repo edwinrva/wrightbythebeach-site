@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import type { ComponentProps } from "react";
+import { trackBookingCtaClick } from "@/lib/analytics";
 
 type Variant = "primary" | "secondary" | "ghost";
 
@@ -14,9 +17,18 @@ type Props = {
   variant?: Variant;
   className?: string;
   children: React.ReactNode;
+  /** Reports a `booking_cta_click` GA4 event tagged with this location when set. */
+  trackingLocation?: string;
 } & Omit<ComponentProps<typeof Link>, "href" | "className">;
 
-export function CtaButton({ href, variant = "primary", className = "", children, ...rest }: Props) {
+export function CtaButton({
+  href,
+  variant = "primary",
+  className = "",
+  children,
+  trackingLocation,
+  ...rest
+}: Props) {
   const isExternal = href.startsWith("http");
   return (
     <Link
@@ -24,6 +36,7 @@ export function CtaButton({ href, variant = "primary", className = "", children,
       className={`inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold tracking-wide uppercase transition-colors duration-200 ${variants[variant]} ${className}`}
       target={isExternal ? "_blank" : undefined}
       rel={isExternal ? "noopener noreferrer" : undefined}
+      onClick={trackingLocation ? () => trackBookingCtaClick(trackingLocation) : undefined}
       {...rest}
     >
       {children}
