@@ -5,10 +5,10 @@ export function lodgingBusinessJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "LodgingBusiness",
-    "@id": "https://www.wrightbythebeach.com/#property",
+    "@id": "https://wrightbythebeach.com/#property",
     name: property.name,
     description: property.headline,
-    url: "https://www.wrightbythebeach.com",
+    url: "https://wrightbythebeach.com",
     telephone: property.managerPhone,
     address: {
       "@type": "PostalAddress",

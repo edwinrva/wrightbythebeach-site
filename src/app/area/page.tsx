@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Outer Banks Area Guide",
   description:
     "Explore Kill Devil Hills and the Outer Banks near Wright by the Beach: the Wright Brothers Memorial, Jockey's Ridge, Avalon Pier, beaches, and more.",
+  alternates: {
+    canonical: "/area",
+  },
 };
 
 export default function AreaPage() {

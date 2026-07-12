@@ -34,6 +34,9 @@ export async function generateMetadata({
   return {
     title: attraction.name,
     description: `${attraction.teaser} Located ${attraction.distance} from Wright by the Beach in Kill Devil Hills, NC.`,
+    alternates: {
+      canonical: `/area/${attraction.slug}`,
+    },
   };
 }
 
@@ -61,13 +64,13 @@ export default async function AttractionPage({
         "@type": "ListItem",
         position: 1,
         name: "Area Guide",
-        item: "https://www.wrightbythebeach.com/area",
+        item: "https://wrightbythebeach.com/area",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: attraction.name,
-        item: `https://www.wrightbythebeach.com/area/${attraction.slug}`,
+        item: `https://wrightbythebeach.com/area/${attraction.slug}`,
       },
     ],
   };

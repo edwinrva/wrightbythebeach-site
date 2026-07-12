@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "FAQ",
   description:
     "Answers about booking, pets, check-in, beach distance, and cancellation policy for Wright by the Beach, a Kill Devil Hills, NC vacation rental.",
+  alternates: {
+    canonical: "/faq",
+  },
 };
 
 const faqJsonLd = {

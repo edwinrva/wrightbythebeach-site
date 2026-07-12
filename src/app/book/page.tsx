@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Book Your Stay",
   description:
     "Check availability and book Wright by the Beach in Kill Devil Hills, NC — securely processed by Resort Realty.",
+  alternates: {
+    canonical: "/book",
+  },
 };
 
 export default function BookPage() {

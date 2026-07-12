@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Amenities",
   description:
     "Every amenity at Wright by the Beach: hot tub, ocean views, rec room, dog-friendly, keyless entry, free beach gear, and more in Kill Devil Hills, NC.",
+  alternates: {
+    canonical: "/amenities",
+  },
 };
 
 export default function AmenitiesPage() {

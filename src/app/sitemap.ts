@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { attractions } from "@/content/attractions";
 
-const BASE_URL = "https://www.wrightbythebeach.com";
+const BASE_URL = "https://wrightbythebeach.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = ["", "/gallery", "/amenities", "/area", "/faq", "/book"].map((path) => ({

@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Photo Gallery",
   description:
     "See every room, deck, and view at Wright by the Beach — a 5-bedroom oceanside vacation rental in Kill Devil Hills, NC.",
+  alternates: {
+    canonical: "/gallery",
+  },
 };
 
 const galleryGroups = [
