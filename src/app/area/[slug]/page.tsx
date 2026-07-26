@@ -6,7 +6,7 @@ import { CtaButton } from "@/components/CtaButton";
 import { PropertyImage } from "@/components/PropertyImage";
 import { AnimatedCoastalVisual } from "@/components/AnimatedCoastalVisual";
 import { attractions } from "@/content/attractions";
-import { areaGuideBodies } from "@/content/areaGuides";
+import { areaGuideBodies, areaGuideFaqs } from "@/content/areaGuides";
 import { property } from "@/content/property";
 import { photos, photoAttribution, restaurantPhotos } from "@/content/photos";
 
@@ -50,6 +50,7 @@ export default async function AttractionPage({
   if (!attraction) notFound();
 
   const bodyParagraphs = areaGuideBodies[attraction.slug] ?? [];
+  const faqs = areaGuideFaqs[attraction.slug] ?? [];
   const photoKey = attractionPhotoKeys[attraction.slug];
   const photo = photoKey ? photos[photoKey] : undefined;
   const attribution = photoKey ? photoAttribution[photoKey] : undefined;
@@ -75,12 +76,34 @@ export default async function AttractionPage({
     ],
   };
 
+  const faqJsonLd =
+    faqs.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqs.map((faq) => ({
+            "@type": "Question",
+            name: faq.question,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: faq.answer,
+            },
+          })),
+        }
+      : null;
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
       <Section tone="ocean">
         <nav className="text-xs text-sand-200">
           <Link href="/area" className="hover:text-sand-50">
@@ -135,6 +158,25 @@ export default async function AttractionPage({
                 <AnimatedCoastalVisual className="h-64 rounded-2xl sm:h-80" />
               )}
               {attribution && <p className="mt-2 text-xs text-ink/70">{attribution}</p>}
+            </div>
+          </div>
+        )}
+
+        {faqs.length > 0 && (
+          <div className="mt-16 border-t border-sand-200 pt-10">
+            <h2 className="font-display text-2xl text-ocean-900">Frequently asked questions</h2>
+            <div className="mx-auto mt-6 max-w-3xl divide-y divide-sand-200">
+              {faqs.map((faq) => (
+                <details key={faq.question} className="group py-5">
+                  <summary className="cursor-pointer list-none font-display text-lg text-ocean-900 marker:content-none">
+                    <span className="flex items-center justify-between gap-4">
+                      {faq.question}
+                      <span className="text-ocean-600 transition-transform group-open:rotate-45">+</span>
+                    </span>
+                  </summary>
+                  <p className="mt-3 text-ink/75">{faq.answer}</p>
+                </details>
+              ))}
             </div>
           </div>
         )}

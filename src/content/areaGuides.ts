@@ -2,7 +2,7 @@ export const areaGuideBodies: Record<string, string[]> = {
   "wright-brothers-memorial": [
     "On December 17, 1903, Orville and Wilbur Wright achieved the first sustained, controlled flight of a powered aircraft on the dunes of Kill Devil Hills — the same town where our house sits today. It's the reason the home is named Wright by the Beach.",
     "The memorial includes a visitor center with a full-scale Wright Flyer reproduction, the original flight markers showing the distance of each of the four 1903 flights, and a granite monument atop Big Kill Devil Hill — a short, worthwhile climb with sweeping views of the Outer Banks.",
-    "Check the National Park Service site for current hours and admission before you go.",
+    "It's open daily, year-round, 9 a.m. to 5 p.m., closed only on Christmas Day. Admission is $10 per person for guests 16 and up (good for 7 consecutive days), free for 15 and under, with a $35 annual pass option — a current America the Beautiful Pass also gets you in. Since we're about a mile away, it's an easy stop before breakfast or right after you check in. Fees and hours can change, so it's worth a quick check on the National Park Service site before you go.",
   ],
   "beach-access": [
     "Two town-maintained access points sit just a short walk from Wright by the Beach — Raleigh Avenue and Ferris Avenue — and both have paved parking, handicap parking, an accessible beach overlook, an outdoor shower, and a porta john.",
@@ -32,5 +32,37 @@ export const areaGuideBodies: Record<string, string[]> = {
     "Mama Kwan's Tiki Bar & Grill is one of our all-time favorites — go for the fish tacos and the creative drinks. They run a text-message waitlist, so put your name in early and be ready to show up within 5 minutes once they call you.",
     "For Mexican, 3 Tequilas Mexican Restaurant does great fajitas and fish tacos with friendly service, plus deals worth planning around: kids eat free Mondays, $1 hard tacos Tuesdays, and half-price 16 oz beers Thursdays. Goombays Grill & Raw Bar is another favorite for fresh, locally caught fish with specials that rotate daily. And when you just want quick, no-fuss counter service, Pigman's Bar-B-Que delivers on wings, BBQ, and their tuna specialty — it also caters well if you're feeding the whole house.",
     "Need groceries instead? Publix, Target, Harris Teeter, and Food Lion are all within about 2.5 miles, so stocking the kitchen for the week is an easy detour on the way in.",
+  ],
+};
+
+export type AreaGuideFaq = { question: string; answer: string };
+
+export const areaGuideFaqs: Partial<Record<string, AreaGuideFaq[]>> = {
+  "wright-brothers-memorial": [
+    {
+      question: "How far is Wright Brothers National Memorial from Wright by the Beach?",
+      answer:
+        "About a mile — roughly a 3-minute drive or a 20-minute walk. It's one of the closest historic sites to the house, and actually where the name Wright by the Beach comes from.",
+    },
+    {
+      question: "What are the hours for Wright Brothers National Memorial?",
+      answer:
+        "It's open daily, year-round, from 9 a.m. to 5 p.m., with the only closure being Christmas Day.",
+    },
+    {
+      question: "How much does it cost to visit?",
+      answer:
+        "$10 per person for visitors 16 and older, good for 7 consecutive days. Anyone 15 and under gets in free, and a $35 annual pass is available. A current America the Beautiful Pass also gets you in at no extra charge.",
+    },
+    {
+      question: "Is the walk up Kill Devil Hill hard?",
+      answer:
+        "It's a short, paved path — about a mile round trip from the visitor center — with a gentle enough incline that most visitors, including kids, can manage comfortably. There's no elevator, so it isn't step-free.",
+    },
+    {
+      question: "What will we actually see there?",
+      answer:
+        "A full-scale reproduction of the 1903 Wright Flyer in the visitor center, markers showing exactly how far each of the four first flights traveled, and the 60-foot granite monument atop Big Kill Devil Hill.",
+    },
   ],
 };
