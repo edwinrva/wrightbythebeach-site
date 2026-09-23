@@ -20,5 +20,12 @@
 - [Amenities](https://wrightbythebeach.com/amenities): Full amenities list
 - [Photo Gallery](https://wrightbythebeach.com/gallery): Photos of every room and view
 - [Area Guide](https://wrightbythebeach.com/area): Nearby Outer Banks attractions and restaurants
+- [Wright Brothers National Memorial](https://wrightbythebeach.com/area/wright-brothers-memorial): History, hours, and visit tips, ~1 mile away
+- [Beach Access: Raleigh & Ferris Avenue](https://wrightbythebeach.com/area/beach-access): The home beach access, 352 yards away
+- [Avalon Fishing Pier](https://wrightbythebeach.com/area/avalon-pier): Classic OBX fishing pier, ~1.5 miles away
+- [Jockey's Ridge State Park](https://wrightbythebeach.com/area/jockeys-ridge): Tallest natural sand dune system on the East Coast, ~6-7 miles away
+- [NC Aquarium on Roanoke Island](https://wrightbythebeach.com/area/nc-aquarium): Family aquarium visit, ~15-16 miles away
+- [Bodie Island Lighthouse](https://wrightbythebeach.com/area/bodie-island-lighthouse): Historic lighthouse, ~14-16 miles away
+- [Our Favorite Local Restaurants](https://wrightbythebeach.com/area/kill-devil-hills-eats): Nearby dining recommendations
 - [FAQ](https://wrightbythebeach.com/faq): Booking, pets, check-in, and policy questions answered directly
 - [Book](https://wrightbythebeach.com/book): Check availability and book (hands off to Resort Realty's checkout)

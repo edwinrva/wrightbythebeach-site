@@ -6,9 +6,10 @@ import { CtaButton } from "@/components/CtaButton";
 import { PropertyImage } from "@/components/PropertyImage";
 import { AnimatedCoastalVisual } from "@/components/AnimatedCoastalVisual";
 import { attractions } from "@/content/attractions";
-import { areaGuideBodies, areaGuideFaqs } from "@/content/areaGuides";
+import { areaGuideBodies, areaGuideFaqs, areaGuideCitations } from "@/content/areaGuides";
 import { property } from "@/content/property";
 import { photos, photoAttribution, restaurantPhotos } from "@/content/photos";
+import { breadcrumbJsonLd } from "@/lib/structuredData";
 
 const attractionPhotoKeys: Partial<Record<string, keyof typeof photos>> = {
   "wright-brothers-memorial": "wrightBrothersMemorial",
@@ -50,6 +51,7 @@ export default async function AttractionPage({
   if (!attraction) notFound();
 
   const bodyParagraphs = areaGuideBodies[attraction.slug] ?? [];
+  const citation = areaGuideCitations[attraction.slug];
   const faqs = areaGuideFaqs[attraction.slug] ?? [];
   const photoKey = attractionPhotoKeys[attraction.slug];
   const photo = photoKey ? photos[photoKey] : undefined;
@@ -57,24 +59,10 @@ export default async function AttractionPage({
   const isRestaurantGuide = attraction.slug === "kill-devil-hills-eats";
   const otherAttractions = attractions.filter((a) => a.slug !== attraction.slug);
 
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Area Guide",
-        item: "https://wrightbythebeach.com/area",
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: attraction.name,
-        item: `https://wrightbythebeach.com/area/${attraction.slug}`,
-      },
-    ],
-  };
+  const pageBreadcrumbJsonLd = breadcrumbJsonLd([
+    { name: "Area Guide", path: "/area" },
+    { name: attraction.name, path: `/area/${attraction.slug}` },
+  ]);
 
   const faqJsonLd =
     faqs.length > 0
@@ -96,7 +84,7 @@ export default async function AttractionPage({
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pageBreadcrumbJsonLd) }}
       />
       {faqJsonLd && (
         <script
@@ -149,6 +137,18 @@ export default async function AttractionPage({
                     <p key={i}>{paragraph}</p>
                   ))}
                 </div>
+              )}
+              {citation && (
+                <p className="mt-4 text-sm text-ink/60">
+                  <a
+                    href={citation.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline hover:text-ink"
+                  >
+                    {citation.label}
+                  </a>
+                </p>
               )}
             </div>
             <div>

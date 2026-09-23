@@ -35,6 +35,17 @@ export const areaGuideBodies: Record<string, string[]> = {
   ],
 };
 
+export const areaGuideCitations: Partial<Record<string, { label: string; url: string }>> = {
+  "wright-brothers-memorial": {
+    label: "Current hours and admission — nps.gov/wrbr",
+    url: "https://www.nps.gov/wrbr/index.htm",
+  },
+  "beach-access": {
+    label: "Town of Kill Devil Hills beach access info — kdhnc.com",
+    url: "https://www.kdhnc.com/997/Beach",
+  },
+};
+
 export type AreaGuideFaq = { question: string; answer: string };
 
 export const areaGuideFaqs: Partial<Record<string, AreaGuideFaq[]>> = {

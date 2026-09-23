@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Section } from "@/components/Section";
 import { BookingWidget } from "@/components/BookingWidget";
 import { property } from "@/content/property";
+import { breadcrumbJsonLd } from "@/lib/structuredData";
 
 export const metadata: Metadata = {
   title: "Book Your Stay",
@@ -14,7 +15,14 @@ export const metadata: Metadata = {
 
 export default function BookPage() {
   return (
-    <Section tone="light" className="min-h-[60vh]">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbJsonLd([{ name: "Book", path: "/book" }])),
+        }}
+      />
+      <Section tone="light" className="min-h-[60vh]">
       <div className="mx-auto max-w-xl text-center">
         <h1 className="font-display text-4xl text-ocean-900 sm:text-5xl">Book Your Stay</h1>
         <p className="mt-4 text-ink/75">
@@ -32,6 +40,7 @@ export default function BookPage() {
           .
         </p>
       </div>
-    </Section>
+      </Section>
+    </>
   );
 }

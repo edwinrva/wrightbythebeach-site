@@ -10,18 +10,38 @@ import { amenityCategories } from "@/content/amenities";
 import { attractions } from "@/content/attractions";
 import { faqs } from "@/content/faqs";
 import { photos } from "@/content/photos";
-import { lodgingBusinessJsonLd } from "@/lib/structuredData";
+import { lodgingBusinessJsonLd, breadcrumbJsonLd } from "@/lib/structuredData";
 
 export default function Home() {
   const wrightBrothers = attractions.find((a) => a.slug === "wright-brothers-memorial")!;
   const previewFaqs = faqs.slice(0, 4);
   const previewAttractions = attractions.slice(0, 4);
+  const previewFaqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: previewFaqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
 
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(lodgingBusinessJsonLd()) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd([])) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(previewFaqJsonLd) }}
       />
       {/* Hero */}
       <section className="relative overflow-hidden bg-ocean-900 text-sand-50">
