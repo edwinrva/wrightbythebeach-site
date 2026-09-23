@@ -33,7 +33,7 @@ export default function FaqPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <Section tone="ocean" className="text-center">
-        <h1 className="font-display text-4xl sm:text-5xl">Frequently Asked Questions</h1>
+        <h1 className="font-display text-4xl sm:text-5xl">Wright by the Beach FAQs</h1>
         <p className="mx-auto mt-4 max-w-xl text-sand-100">
           Everything you need to know before booking your stay.
         </p>

@@ -1,6 +1,6 @@
 export const property = {
   name: "Wright by the Beach",
-  tagline: "Where vacation first took flight",
+  tagline: "Wright by the Beach — Where vacation first took flight",
   listingId: "5310",
   manager: "Resort Realty",
   managerPhone: "(800) 458-3830",

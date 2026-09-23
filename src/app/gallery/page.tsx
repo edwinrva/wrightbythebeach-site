@@ -3,6 +3,7 @@ import { Section } from "@/components/Section";
 import { CtaButton } from "@/components/CtaButton";
 import { GalleryGrid } from "@/components/GalleryGrid";
 import { photos } from "@/content/photos";
+import { breadcrumbJsonLd } from "@/lib/structuredData";
 
 export const metadata: Metadata = {
   title: "Photo Gallery",
@@ -61,13 +62,44 @@ const galleryGroups = [
   },
 ];
 
+const galleryImageObjects = galleryGroups.flatMap((group) =>
+  group.photos.map((photo) => ({
+    "@type": "ImageObject",
+    contentUrl: `https://wrightbythebeach.com${photo.src}`,
+    name: photo.label,
+    description: photo.alt,
+  }))
+);
+
+const galleryJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ImageGallery",
+  "@id": "https://wrightbythebeach.com/gallery#gallery",
+  name: "Wright by the Beach Photo Gallery",
+  about: { "@id": "https://wrightbythebeach.com/#property" },
+  image: galleryImageObjects,
+};
+
 export default function GalleryPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(galleryJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbJsonLd([{ name: "Photo Gallery", path: "/gallery" }])),
+        }}
+      />
       <Section tone="ocean" className="text-center">
-        <h1 className="font-display text-4xl sm:text-5xl">Photo Gallery</h1>
-        <p className="mx-auto mt-4 max-w-xl text-sand-100">
-          A closer look at every room, deck, and view at Wright by the Beach.
+        <h1 className="font-display text-4xl sm:text-5xl">Wright by the Beach Photo Gallery</h1>
+        <p className="mx-auto mt-4 max-w-2xl text-sand-100">
+          Explore the 5-bedroom oceanside home with detailed photos of every space. Browse the
+          exterior and decks with ocean views, the living and dining areas, all five bedrooms, the
+          rec room and bathrooms, and the convenient features that make Wright by the Beach a
+          relaxing getaway in Kill Devil Hills, NC.
         </p>
       </Section>
 

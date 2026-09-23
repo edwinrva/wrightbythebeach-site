@@ -3,6 +3,7 @@ import { Section } from "@/components/Section";
 import { CtaButton } from "@/components/CtaButton";
 import { amenityCategories } from "@/content/amenities";
 import { property } from "@/content/property";
+import { breadcrumbJsonLd } from "@/lib/structuredData";
 
 export const metadata: Metadata = {
   title: "Amenities",
@@ -13,14 +14,51 @@ export const metadata: Metadata = {
   },
 };
 
+const amenityFaqs = [
+  {
+    question: "What entertainment options are available?",
+    answer:
+      "The home features a rec room with foosball and an arcade game, a second-floor living room with a big TV, soundbar, and board games, 7 TVs throughout the home, a reading nook, and high-speed WiFi with whole-house coverage.",
+  },
+  {
+    question: "What outdoor amenities does the property have?",
+    answer:
+      "Outdoor amenities include a hot tub open year-round on the deck, ocean views from the upper sun decks, multiple levels of sun decks and covered decks, and a gas grill.",
+  },
+];
+
+const amenityFaqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: amenityFaqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
+
 export default function AmenitiesPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(amenityFaqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbJsonLd([{ name: "Amenities", path: "/amenities" }])),
+        }}
+      />
       <Section tone="ocean" className="text-center">
         <p className="text-sm font-semibold uppercase tracking-wide text-ocean-200">{property.name}</p>
         <h1 className="mt-2 font-display text-4xl sm:text-5xl">Amenities</h1>
         <p className="mx-auto mt-4 max-w-xl text-sand-100">
           Everything included in your stay — no surprises, just a house built for a full week away.
+          Every feature listed below is included with your booking.
         </p>
       </Section>
 
@@ -56,6 +94,21 @@ export default function AmenitiesPage() {
             </div>
           ))}
         </div>
+
+        <div className="mx-auto mt-14 max-w-3xl divide-y divide-sand-200">
+          {amenityFaqs.map((faq) => (
+            <details key={faq.question} className="group py-5">
+              <summary className="cursor-pointer list-none font-display text-lg text-ocean-900 marker:content-none">
+                <span className="flex items-center justify-between gap-4">
+                  {faq.question}
+                  <span className="text-ocean-600 transition-transform group-open:rotate-45">+</span>
+                </span>
+              </summary>
+              <p className="mt-3 text-ink/75">{faq.answer}</p>
+            </details>
+          ))}
+        </div>
+
         <div className="mt-12 text-center">
           <CtaButton href="/book" trackingLocation="amenities_page">Check availability</CtaButton>
         </div>
